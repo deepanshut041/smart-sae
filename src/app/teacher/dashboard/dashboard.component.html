@@ -1,0 +1,56 @@
+<article class="container-fluid">
+    <div class="row">
+        <section class="col-lg-6 col-12" id="teacher">
+            <div class="alert alert-info text-center" role="alert">
+                <strong>Teacher Section</strong>
+            </div>
+            <hr>
+            <div class="flow">
+                <ul *ngFor="let note of notes">
+                    <li>
+                        <div class="alert alert-danger" role="alert" *ngIf="note.question">
+                            <strong>Question: </strong> {{note.question}}
+                        </div>
+                        <div class="alert alert-success" role="alert">
+                            {{note.answer}}
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+        </section>
+        <section class="col-lg-6 col-12" id="student">
+            <div class="alert alert-warning text-center" role="alert">
+                <strong>Student Section</strong>
+            </div>
+            <hr>
+            <div class="flow">
+                <ul *ngFor="let question of questions">
+                    <li>
+                        <div class="alert alert-danger" role="alert">
+                            <button type="submit" class="btn btn-primary" (click)="onAnswer(question.question,question.$key)"> Answer</button>
+                             {{question.question}}
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
+    <div class="container">
+        <form (submit)="addNewNotes(
+            ques.value,
+            answer.value
+        )">
+            <div class="form-group">
+                <label for="question">Question: </label>
+                <input type="text" class="form-control" placeholder="Question" value="{{question}}" #ques>
+                <small id="emailHelp" class="form-text text-muted">Leave Blank if no question</small>
+            </div>
+            <div class="form-group">
+                <label for="exampleTextarea">Answer/notes</label>
+                <textarea class="form-control" id="note" rows="4" #answer value="{{answerNote}}"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary text-center">Submit</button>
+        </form>
+    </div>
+</article>

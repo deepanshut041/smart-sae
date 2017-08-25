@@ -1,0 +1,59 @@
+<article class="container-fluid">
+    <h1 class="text-center">Manage Students</h1>
+    <hr><br>
+    <section class="container">
+        <h3>Add/Edit Students</h3>
+        <hr>
+        <form (submit) = "addNewStudent(
+            id.value,
+            name.value,
+            fname.value,
+            email.value,
+            password.value)">
+            <div class="form-group">
+                <label for="name">Admisson Number</label>
+                <input type="number" class="form-control"   placeholder="Admisson number.." #id>
+            </div>
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" class="form-control"   placeholder="full name.." #name>
+            </div>
+            <div class="form-group">
+                <label for="name">Father's Name</label>
+                <input type="text" class="form-control"   placeholder="Father name.." #fname>
+            </div>
+            <div class="form-group">
+                <label for="name">Email</label>
+                <input type="email" class="form-control"   placeholder="@Email.." #email>
+            </div>
+            <div class="form-group">
+                <label for="name">Password</label>
+                <input type="password" class="form-control"   placeholder="password" #password>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form> 
+    </section><br>
+    <section class="container">
+            <h3>List Students</h3>
+            <hr>
+            <table class="table">
+                <thead class="bg-success">
+                    <tr>
+                        <th> Admisson No.</th>
+                        <th> Name </th>
+                        <th> Email </th>
+                        <th> Tasks </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let student of students">
+                        <th scope="row">{{student.student_id}}</th>
+                        <td> {{student.full_name}} </td>
+                        <td> {{student.father_name}} </td>
+                        <td> <button class="btn btn-danger" (click)="removeStudent(student.$key)">Delete</button> </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+</article>

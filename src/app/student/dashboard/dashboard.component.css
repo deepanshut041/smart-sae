@@ -1,0 +1,22 @@
+article{
+    margin:50px 5px;
+}
+
+article #teacher{
+    border: 1px solid black;
+    border-radius: 10px;
+    padding-top: 15px;
+}
+
+article #teacher div.alert-danger{
+    margin-bottom: 0px;
+}
+.flow{
+    height: 70vh;
+    overflow-y: scroll;
+    padding: 10px;
+}
+
+div form{
+    margin-top: 50px;
+}
